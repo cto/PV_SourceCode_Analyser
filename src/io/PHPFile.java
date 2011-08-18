@@ -21,7 +21,7 @@ public class PHPFile extends PVFileBase implements PVFileInterface {
 	public PHPFile(String fName) throws Exception
 	{
 		super(fName);
-		this._allPlaceholders = new FileIdentifiers(fName, Settings.PLACEHOLDER);
+		this._allPlaceholders = new FileIdentifiers(fName, Settings.PLACEHOLDER);  // KKKTTT: this could be an error for the NullPointerException
 		this._parser = new Parser(this._allPlaceholders, super.getContentAL());
 	}
 
