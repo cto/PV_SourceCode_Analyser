@@ -96,7 +96,7 @@ public class Main {
 			thisHTMLAbsolutePath = thisHTMLAbsolutePath.replaceFirst(Settings.HTML_BASE, Settings.HTML_LIB_BASE);
 			htmlFile 	= new HTMLFile(thisHTMLAbsolutePath);
 			if ( ! htmlFile.isFile()){
-//				System.out.println("Warning: this is not a file: " + thisHTMLAbsolutePath);
+				System.out.println("Warning: this is not a file: " + thisHTMLAbsolutePath);
 			} 
 		}
 		
