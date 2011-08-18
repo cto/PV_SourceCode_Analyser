@@ -277,7 +277,7 @@ public class Main {
 			scanSourceDir(Settings.SITE_PORTAVITA_SRC_BASE + "/" + Settings.PHP_BASE);
 			scanSourceDir(Settings.SITE_DIGITAALLOGBOEK_SRC_BASE + "/" + Settings.PHP_BASE);		
 			
-//			reportOnPlaceHolders(_plhoPHPAppIdentifiers, _plhoHTMLAppIdentifiers);
+			reportOnPlaceHolders(_plhoPHPAppIdentifiers, _plhoHTMLAppIdentifiers);
 			
 			long elapsedTime = System.nanoTime() - startTime;
 						
@@ -285,7 +285,7 @@ public class Main {
 						
 			System.out.println("Total memory used (in MB): " + Runtime.getRuntime().totalMemory() / 1048576);
 			
-			System.out.println(_plhoPHPAppIdentifiers.serialize());
+//			System.out.println(_plhoPHPAppIdentifiers.serialize());
 
 		} catch (Exception e){
 			e.printStackTrace();
