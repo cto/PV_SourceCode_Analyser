@@ -58,20 +58,20 @@ public class Main {
 	/**
 	 * Fill the global placeholder lists in Settings accordingly
 	 * @param phpFileName
-	 * @param plhoNames
+	 * @param phpPlhoNameSet
 	 */
-	private static void _buildGlobalPlaceholderList(String phpFileName, Set<String> plhoNames){
+	private static void _buildGlobalPlaceholderList(String phpFileName, Set<Integer> phpPlhoNameSet){
 		if (phpFileName.endsWith("portavita.nl/global_placeholder.php")){
-			Settings.GENERIC_GLOBAL_PLACEHOLDERS = new ArrayList<String>(plhoNames);
+			Settings.GENERIC_GLOBAL_PLACEHOLDERS = new ArrayList<Integer>(phpPlhoNameSet);
 			return;
 		} else if (phpFileName.endsWith("antistolling/global_placeholder.php")){
-			Settings.ANTISTOLLING_GLOBAL_PLACEHOLDERS = new ArrayList<String>(plhoNames);
+			Settings.ANTISTOLLING_GLOBAL_PLACEHOLDERS = new ArrayList<Integer>(phpPlhoNameSet);
 			return;
 		} else if (phpFileName.endsWith("digitaallogboek.nl/global_placeholder.php")){
-			Settings.DIGITAALLOGBOEK_GLOBAL_PLACEHOLDERS = new ArrayList<String>(plhoNames);
+			Settings.DIGITAALLOGBOEK_GLOBAL_PLACEHOLDERS = new ArrayList<Integer>(phpPlhoNameSet);
 			return;
 		} else if (phpFileName.endsWith("servicecenter/global_placeholder.php")){
-			Settings.SERVICECENTER_GLOBAL_PLACEHOLDERS = new ArrayList<String>(plhoNames);
+			Settings.SERVICECENTER_GLOBAL_PLACEHOLDERS = new ArrayList<Integer>(phpPlhoNameSet);
 			return;
 		}
 	}
@@ -92,7 +92,7 @@ public class Main {
 		howManyPHPPlaceHolders += nrPHPPlhos;
 		_plhoPHPAppIdentifiers.getAppIdentifiers().put(phpFile.getFileName(), filePlaceHolders);
 
-		Set<String> phpPlhoNameSet = filePlaceHolders.getFileIdentifiers().keySet();
+		Set<Integer> phpPlhoNameSet = filePlaceHolders.getFileIdentifiers().keySet();
 		String thisPHPAbsolutePath = phpFile.getFileName();
 		
 		_buildGlobalPlaceholderList(thisPHPAbsolutePath, phpPlhoNameSet);
