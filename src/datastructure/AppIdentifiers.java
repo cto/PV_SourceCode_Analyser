@@ -3,20 +3,19 @@
  */
 package datastructure;
 
-import java.util.ArrayList;
 import java.util.Set;
 import java.util.TreeMap;
 
 /**
  * @author kto
- * Contains all Identifiers of all the files in the Application
+ * Contains all Identifiers of the same type in all the files in the Application
  */
 public class AppIdentifiers {
 
 	private int _identifierType = -1; // 
 	
-	//            <FileName, FileIdentifiers>
-	private final TreeMap<String, FileIdentifiers> _appIdentifiers;
+	                  // <FileNameId, FileIdentifiers>
+	private final TreeMap<Integer,    FileIdentifiers> _appIdentifiers;
 
 	private FileIdentifiers _currentFileIdentifiers = null;
 	
@@ -26,25 +25,25 @@ public class AppIdentifiers {
 	
 	public AppIdentifiers(int identifierType){
 		this._identifierType = identifierType;
-		this._appIdentifiers = new TreeMap<String, FileIdentifiers>();
+		this._appIdentifiers = new TreeMap<Integer, FileIdentifiers>();
 	}
 
 	/**
 	 * @return the appIdentifiers
 	 */
-	public TreeMap<String, FileIdentifiers> getAppIdentifiers() {
+	public TreeMap<Integer, FileIdentifiers> getAppIdentifiers() {
 		return this._appIdentifiers;
 	}
 
 	
 	public String serialize(){
-		Set<String> filenameSet = _appIdentifiers.keySet();
+		Set<Integer> filenameIdSet = _appIdentifiers.keySet();
 		
 		String retStr = "";
 
-		for (String fileName : filenameSet){
-			retStr += _BOF + fileName + ":[" + _BOI;
-			_currentFileIdentifiers = _appIdentifiers.get(fileName);
+		for (int fileNameId : filenameIdSet){
+			retStr += _BOF + fileNameId + ":[" + _BOI;
+			_currentFileIdentifiers = _appIdentifiers.get(fileNameId);
 			
 			retStr += _currentFileIdentifiers.serialize();
 			retStr += "]";
@@ -57,18 +56,18 @@ public class AppIdentifiers {
 	 * Search for an identifier within this appIdentifier
 	 * @param identifierName
 	 */
-	public int searchIdentifier(	String needleIdentifierName
-									,	String haystackFileName
-									,	TreeMap<String, Identifier> placesFound)
+	public int searchIdentifier(	int needleIdentifierNameId
+									,	int haystackFileNameId
+									,	TreeMap<Integer, Identifier> placesFound)
 	{
-		FileIdentifiers fiid = this._appIdentifiers.get(haystackFileName);
+		FileIdentifiers fiid = this._appIdentifiers.get(haystackFileNameId);
 		
 		if (null == fiid){
-			System.out.println(needleIdentifierName + " is not found at " + haystackFileName);
+			System.out.println(needleIdentifierNameId + " is not found at " + haystackFileNameId);
 		}
-		TreeMap<String, Identifier> hoho = fiid.getFileIdentifiers();
+		TreeMap<Integer, Identifier> hoho = fiid.getFileIdentifiers();
 		
-		if (hoho.containsKey(needleIdentifierName)){
+		if (hoho.containsKey(needleIdentifierNameId)){
 			return 0;
 		}
 		
@@ -77,16 +76,30 @@ public class AppIdentifiers {
 //		}
 		
 		int found = -1;
-		Set<String> thisFileNameSet = this._appIdentifiers.keySet();
+		Set<Integer> thisFileNameIdSet = this._appIdentifiers.keySet();
 		
-		for (String currentfileName : thisFileNameSet){
+		for (int currentfileNameId : thisFileNameIdSet){
 			Identifier foundIdentifier = null;
-			if (null != (foundIdentifier = this._appIdentifiers.get(currentfileName).getFileIdentifiers().get(needleIdentifierName))){
-				placesFound.put(currentfileName, foundIdentifier);
+			if (null != (foundIdentifier = this._appIdentifiers.get(currentfileNameId).getFileIdentifiers().get(needleIdentifierNameId))){
+				placesFound.put(currentfileNameId, foundIdentifier);
 				found = 1;
 			}
 		}
 		
 		return found;
+	}
+
+	/**
+	 * @param identifierType the _identifierType to set
+	 */
+	public void set_identifierType(int identifierType) {
+		this._identifierType = identifierType;
+	}
+
+	/**
+	 * @return the _identifierType
+	 */
+	public int get_identifierType() {
+		return _identifierType;
 	}
 }

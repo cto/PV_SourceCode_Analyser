@@ -3,9 +3,12 @@
  */
 package io;
 
+import java.util.ArrayList;
+
 import config.Settings;
 import datastructure.FileIdentifiers;
 import parser.IdentifierFinder;
+import utils.NameLUT;
 
 /**
  * @author kto
@@ -21,10 +24,10 @@ public class HTMLFile extends PVFileBase implements PVFileInterface{
 	private 		final	IdentifierFinder _inputFieldsFinder; 
 	private 		final	IdentifierFinder _placeHoldersFinder;
 	
-	public HTMLFile(String fName){
-		super(fName);
-		this._inputFieldsFinder = new IdentifierFinder(fName, super.getContentAL(), Settings.HTML_INPUTFIELD_PATTERN_STR, Settings.PLACEHOLDER);
-		this._placeHoldersFinder = new IdentifierFinder(fName, super.getContentAL(), Settings.HTML_PLHO_PATTERN_STR, Settings.INPUTFIELD);
+	public HTMLFile(int fNameId, int fileType, NameLUT nameLUT){
+		super(nameLUT.getName(fNameId));
+		this._inputFieldsFinder = new IdentifierFinder(fNameId, super.getContentAL(), Settings.HTML_INPUTFIELD_PATTERN_STR, Settings.PLACEHOLDER, fileType, nameLUT);
+		this._placeHoldersFinder = new IdentifierFinder(fNameId, super.getContentAL(), Settings.HTML_PLHO_PATTERN_STR, Settings.INPUTFIELD, fileType, nameLUT);
 	}
 	
 	public boolean isPlhoFound(String plhoName){

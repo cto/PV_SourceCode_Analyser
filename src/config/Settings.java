@@ -83,4 +83,19 @@ public final class Settings {
 	 */
 	public static final int PLACEHOLDER = 0;
 	public static final int INPUTFIELD  = 1;	
+	
+	/**
+	 * Settings for file types
+	 */
+	public static final int PHP	= 0;
+	public static final int HTML = 1;	
+	public static final int JS = 2;
+	public static final int PKB = 3;
+	public static final int PKS = 4;	
+	
+	/**
+	 * Settings for name types
+	 */
+	public static final int FILE_NAME = 0;
+	public static final int IDENTIFIER_NAME = 1;	
 }

@@ -14,6 +14,8 @@ import java.nio.channels.FileChannel;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 
+import utils.NameLUT;
+
 /**
  * @author kto
  *
@@ -27,7 +29,7 @@ public class PVFileBase implements PVFileInterface{
 	private ArrayList<String>	_contentAL 	= null;
 	private	String				_contentInString	= "";
 	private String				_strLine = "";
-	private boolean	isFile = true;
+	private boolean				_isFile = true;
 	
 	public PVFileBase(String fName)
 	{
@@ -35,11 +37,12 @@ public class PVFileBase implements PVFileInterface{
 		try{
 			File thisFile = new File(fName);
 			if (thisFile.isFile()){
-				isFile = true;
+				_isFile = true;
 				readToContentAL(fName);
 				this._contentInString = readToContentInString(fName);
 			} else {
-				isFile = false;
+				_isFile = false;
+				throw new Exception("Not a file");
 			}
 		} catch (Exception e){
 			e.printStackTrace();
@@ -68,7 +71,7 @@ public class PVFileBase implements PVFileInterface{
 				this._contentAL.add(this._lineNumbReader.getLineNumber() - 1, _strLine);
 			}
 		} catch (Exception e){
-			System.err.println("Error reading from this file: " + this._fileName);
+			System.err.println("Error reading from this file: " + fName);
 			e.printStackTrace();
 		}
 	}
@@ -84,10 +87,10 @@ public class PVFileBase implements PVFileInterface{
 	}
 
 	/**
-	 * @return the isFile
+	 * @return the _isFile
 	 */
 	public boolean isFile() {
-		return isFile;
+		return _isFile;
 	}
 	
 	/**

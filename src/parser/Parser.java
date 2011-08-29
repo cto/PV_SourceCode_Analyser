@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import parser.php.PlaceHolderFunction;
 import parser.php.PostedValues;
+import utils.NameLUT;
 import datastructure.FileIdentifiers;
 
 /**
@@ -18,10 +19,14 @@ public class Parser {
 	private PlaceHolderFunction _plhoFunc	= null;
 	private PostedValues 		_pova = null;
 
-	public Parser(FileIdentifiers fileIdentifiers, ArrayList<String> inText) throws Exception
+	public Parser(FileIdentifiers fileIdentifiers, ArrayList<String> inText, NameLUT nameLUT) throws Exception
 	{
+		if (null == inText){
+			throw new Exception("Text to be parse is null");
+		}
+		
 		this._plhoFunc = new PlaceHolderFunction(inText);
-		this._pova = new PostedValues(fileIdentifiers, inText);
+		this._pova = new PostedValues(fileIdentifiers, inText, nameLUT);
 	}
 	
 	/**

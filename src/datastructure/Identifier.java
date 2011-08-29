@@ -8,19 +8,30 @@ import java.util.TreeMap;
 
 /**
  * @author kto
- *
+ * Contains all occurrence positions of an Identifier within one file
+ * - The Identifier is uniquely idenfified by the set {identifierNameId, identifierType}
+ * - The file is uniquely identified by a fileNameId
+ * For caching reason, the number of occurrences of the identifier is stored.
+ * 
+ * FIXME: should this class be renamed "IdentifierPositions" ???
  */
 public class Identifier {
-	private String _fileName = "";
-	private String _identifierName = "";
-	private String _identifierType = ""; // Placeholder inside a "...placeholder()", or inside a "print...()", or a inputfield, ...
-	private int _nrOccurences = 0;  // Number of occurences of this identifier in a FileIdentifier, not sure if this is a bad design
+	private int	_fileNameId = -1;
+	private int	_identifierNameId = -1;
+	private int _identifierType = -1; // Placeholder, inputfield, ...
+	private int _nrOccurences = -1;  // Number of occurrences of this identifier in a FileIdentifier, not sure if this is a bad design
 	
 	private TreeMap<Integer, ArrayList<Integer>> _positions = new TreeMap<Integer, ArrayList<Integer>>();
 	
-	public Identifier(String identifierName, String fileName){
-		this._fileName = fileName;
-		this._identifierName = identifierName;
+	public Identifier(int fileNameId, int identifierNameId, int identifierType){
+		
+		if ( (fileNameId < 0) || (identifierNameId < 0) || (identifierType < 0)){
+			throw new IndexOutOfBoundsException("At least one of the IDs is negative");
+		}
+		
+		this._fileNameId = fileNameId;
+		this._identifierNameId = identifierNameId;
+		this._identifierType = identifierType;
 	}
 
 	/**
@@ -38,30 +49,30 @@ public class Identifier {
 	}
 
 	/**
-	 * @param identifierName the identifierName to set
+	 * @param nameId the identifierNameId to set
 	 */
-	public void setName(String name) {
-		this._identifierName = name;
+	public void setNameId(int nameId) {
+		this._identifierNameId = nameId;
 	}
 
 	/**
-	 * @return the identifierName
+	 * @return the identifierNameId
 	 */
-	public String getName() {
-		return this._identifierName;
+	public int getNameId() {
+		return this._identifierNameId;
 	}
 
 	/**
 	 * @param identifierType the identifierType to set
 	 */
-	public void setType(String type) {
+	public void setType(int type) {
 		this._identifierType = type;
 	}
 
 	/**
 	 * @return the identifierType
 	 */
-	public String getType() {
+	public int getType() {
 		return this._identifierType;
 	}
 
@@ -87,16 +98,16 @@ public class Identifier {
 	}
 
 	/**
-	 * @param fileName the fileName to set
+	 * @param fileNameId the fileNameId to set
 	 */
-	public void setFileName(String fileName) {
-		this._fileName = fileName;
+	public void setFileNameId(int fileNameId) {
+		this._fileNameId = fileNameId;
 	}
 
 	/**
-	 * @return the fileName
+	 * @return the fileNameId
 	 */
-	public String getFileName() {
-		return this._fileName;
+	public int getFileNameId() {
+		return this._fileNameId;
 	}	
 }

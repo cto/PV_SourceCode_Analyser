@@ -11,6 +11,7 @@ import java.util.Set;
 import java.util.TreeMap;
 
 import utils.FileName;
+import utils.NameLUT;
 
 import datastructure.AppIdentifiers;
 import datastructure.FileIdentifiers;
@@ -44,6 +45,16 @@ public class Main {
 	private static AppIdentifiers infiPHPAppIdentifiers = new AppIdentifiers(Settings.INPUTFIELD);
 	private static AppIdentifiers infiHTMLAppIdentifiers = new AppIdentifiers(Settings.INPUTFIELD);
 
+	private static NameLUT	_povaPHPNameLUT = new NameLUT(Settings.IDENTIFIER_NAME);
+	private static NameLUT	_infiHTMLNameLUT = new NameLUT(Settings.IDENTIFIER_NAME);
+	private static NameLUT	_plhoPHPNameLUT = new NameLUT(Settings.IDENTIFIER_NAME);
+	private static NameLUT	_plhoHTMLNameLUT = new NameLUT(Settings.IDENTIFIER_NAME);
+	
+	private static NameLUT _htmlFileNameLUT = new NameLUT(Settings.FILE_NAME);
+	private static NameLUT _phpFileNameLUT = new NameLUT(Settings.FILE_NAME);
+	private static NameLUT _jsFileNameLUT = new NameLUT(Settings.FILE_NAME);
+	private static NameLUT _pkbFileNameLUT = new NameLUT(Settings.FILE_NAME);
+	private static NameLUT _pksFileNameLUT = new NameLUT(Settings.FILE_NAME);
 	/**
 	 * Fill the global placeholder lists in Settings accordingly
 	 * @param phpFileName
@@ -90,11 +101,11 @@ public class Main {
 		
 		thisHTMLAbsolutePath = thisPHPAbsolutePath.replaceFirst(Settings.PHP_BASE, Settings.HTML_BASE);
 		thisHTMLAbsolutePath = thisHTMLAbsolutePath.replaceAll("\\.php", "\\.html");		
-		HTMLFile 	htmlFile 	= new HTMLFile(thisHTMLAbsolutePath);
+		HTMLFile 	htmlFile 	= new HTMLFile(thisHTMLAbsolutePath, Settings.HTML);
 	
 		if ( ! htmlFile.isFile()){ // HTML is not in HTML_BASE, so we hope to find it in HTML_LIB_BASE
 			thisHTMLAbsolutePath = thisHTMLAbsolutePath.replaceFirst(Settings.HTML_BASE, Settings.HTML_LIB_BASE);
-			htmlFile 	= new HTMLFile(thisHTMLAbsolutePath);
+			htmlFile 	= new HTMLFile(thisHTMLAbsolutePath, Settings.HTML);
 			if ( ! htmlFile.isFile()){
 				System.out.println("Warning: this is not a file: " + thisHTMLAbsolutePath);
 			} 
@@ -148,7 +159,7 @@ public class Main {
 
 		String thisHTMLAbsolutePath = phpFile.getFileName().replaceFirst(Settings.PHP_BASE, Settings.HTML_BASE);
 		thisHTMLAbsolutePath = thisHTMLAbsolutePath.replaceFirst("\\.php", "\\.html");
-		HTMLFile 	htmlFile = new HTMLFile(thisHTMLAbsolutePath);
+		HTMLFile 	htmlFile = new HTMLFile(thisHTMLAbsolutePath, null);
 		
 		infiHTMLAppIdentifiers.getAppIdentifiers().put(htmlFile.getFileName(), htmlFile.getPlaceHolders());
 
