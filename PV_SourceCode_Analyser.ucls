@@ -1,0 +1,220 @@
+<class-diagram version="1.0.4" icons="false" automaticImage="PNG" always-add-relationships="false" 
+  generalizations="false" realizations="false" associations="false" dependencies="false" nesting-relationships="false">  
+  <class id="2" corner="BOTTOM_RIGHT" language="java" name="datastructure.AppIdentifiers" 
+    project="PV_SourceCode_Analyser" file="/PV_SourceCode_Analyser/src/datastructure/AppIdentifiers.java" binary="false">    
+    <position x="700" y="536" width="101" height="138"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="3" corner="BOTTOM_RIGHT" language="java" name="datastructure.FileIdentifiers" 
+    project="PV_SourceCode_Analyser" file="/PV_SourceCode_Analyser/src/datastructure/FileIdentifiers.java" 
+    binary="false">    
+    <position x="259" y="1068" width="-1" height="-1"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="4" corner="BOTTOM_RIGHT" language="java" name="datastructure.Identifier" project="PV_SourceCode_Analyser" 
+    file="/PV_SourceCode_Analyser/src/datastructure/Identifier.java" binary="false">    
+    <position x="660" y="1165" width="245" height="268"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="5" corner="BOTTOM_RIGHT" language="java" name="io.HTMLFile" project="PV_SourceCode_Analyser" 
+    file="/PV_SourceCode_Analyser/src/io/HTMLFile.java" binary="false">    
+    <position x="41" y="189" width="141" height="177"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="6" corner="BOTTOM_RIGHT" language="java" name="io.PHPFile" project="PV_SourceCode_Analyser" 
+    file="/PV_SourceCode_Analyser/src/io/PHPFile.java" binary="false">    
+    <position x="660" y="37" width="101" height="112"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="7" corner="BOTTOM_RIGHT" language="java" name="parser.IdentifierFinder" project="PV_SourceCode_Analyser" 
+    file="/PV_SourceCode_Analyser/src/parser/IdentifierFinder.java" binary="false">    
+    <position x="41" y="536" width="141" height="151"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="8" corner="BOTTOM_RIGHT" language="java" name="parser.Parser" project="PV_SourceCode_Analyser" 
+    file="/PV_SourceCode_Analyser/src/parser/Parser.java" binary="false">    
+    <position x="465" y="189" width="123" height="99"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="9" corner="BOTTOM_RIGHT" language="java" name="main.Main" project="PV_SourceCode_Analyser" 
+    file="/PV_SourceCode_Analyser/src/main/Main.java" binary="false">    
+    <position x="700" y="189" width="243" height="307"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="10" corner="BOTTOM_RIGHT" language="java" name="parser.php.PlaceHolderFunction" 
+    project="PV_SourceCode_Analyser" file="/PV_SourceCode_Analyser/src/parser/php/PlaceHolderFunction.java" 
+    binary="false">    
+    <position x="465" y="536" width="174" height="281"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="11" corner="BOTTOM_RIGHT" language="java" name="parser.php.PostedValues" project="PV_SourceCode_Analyser" 
+    file="/PV_SourceCode_Analyser/src/parser/php/PostedValues.java" binary="false">    
+    <position x="222" y="536" width="203" height="138"/>    
+    <display autosize="true" package="true" initial-value="false" signature="false" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <association>    
+    <end type="SOURCE" nodeId="8" navigable="false">      
+      <attribute name="_plhoFunc"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" nodeId="10" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <end type="SOURCE" nodeId="3" navigable="false">      
+      <attribute name="_fileIdentifiers"/>      
+      <multiplicity minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" nodeId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <end type="SOURCE" nodeId="6" navigable="false">      
+      <attribute name="_parser"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" nodeId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <end type="SOURCE" nodeId="5" navigable="false">      
+      <attribute name="_inputFieldsFinder"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" nodeId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <end type="SOURCE" nodeId="7" navigable="false">      
+      <attribute name="_identifiers"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" nodeId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <end type="SOURCE" nodeId="8" navigable="false">      
+      <attribute name="_pova"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" nodeId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <end type="SOURCE" nodeId="5" navigable="false">      
+      <attribute name="_placeHoldersFinder"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" nodeId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <end type="SOURCE" nodeId="2" navigable="false">      
+      <attribute name="_currentFileIdentifiers"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" nodeId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <end type="SOURCE" nodeId="2" navigable="false">      
+      <attribute name="_appIdentifiers"/>      
+      <multiplicity minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" nodeId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <bendpoint x="669" y="189"/>    
+    <bendpoint x="669" y="536"/>    
+    <end type="SOURCE" nodeId="6" navigable="false">      
+      <attribute name="_allPlaceholders"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" nodeId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <end type="SOURCE" nodeId="3" navigable="false">      
+      <attribute name="_currentIdentifier"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" nodeId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <end type="SOURCE" nodeId="9" navigable="false">      
+      <attribute name="infiHTMLAppIdentifiers"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" nodeId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <end type="SOURCE" nodeId="9" navigable="false">      
+      <attribute name="_plhoPHPAppIdentifiers"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" nodeId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <end type="SOURCE" nodeId="9" navigable="false">      
+      <attribute name="infiPHPAppIdentifiers"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" nodeId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <end type="SOURCE" nodeId="11" navigable="false">      
+      <attribute name="_allPostedValues"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" nodeId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <end type="SOURCE" nodeId="9" navigable="false">      
+      <attribute name="_plhoHTMLAppIdentifiers"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" nodeId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <classifier-display autosize="true" package="false" initial-value="false" signature="false" visibility="false">    
+    <attributes public="true" package="true" protected="true" private="true"/>    
+    <operations public="true" package="true" protected="true" private="true"/>  
+  </classifier-display>  
+  <association-display labels="false" multiplicity="false"/>
+</class-diagram>
